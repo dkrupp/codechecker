@@ -112,6 +112,9 @@ def get_compiler_target(compiler):
 
 def parse_compile_commands_json(logfile, add_compiler_defaults=False):
     import json
+    # add-compiler-defautls is a deprecated argument
+    # and we always perform target and include auto-detection.
+    add_compiler_defaults = True
     LOG.debug('parse_compile_commands_json: ' + str(add_compiler_defaults))
 
     actions = []
