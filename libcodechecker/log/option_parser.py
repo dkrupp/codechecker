@@ -489,6 +489,13 @@ def parse_options(args):
             result_map.compile_opts[idx] = opt.replace('"', r'"\"')
 
     result_map.compiler = shlex.split(args)[0]
+
+    #  If the compiler is C++ (contains ++ in its name)
+    #  we set the language explicitly to c++.
+    cpp_regex = re.compile('.*\+\+.*')
+    if cpp_regex.match(result_map.compiler) is not None:
+        result_map.lang = 'c++'
+
     is_source = False
     for source_file in result_map.files:
         lang = get_language(os.path.splitext(source_file)[1].rstrip('"'))
@@ -499,6 +506,9 @@ def parse_options(args):
             if result_map.lang is None:
                 result_map.lang = lang
             break
+
+    if result_map.lang:
+        LOG.debug("Detected language" + result_map.lang)
 
     # If there are no source files in the compilation argument
     # handle it as a link command.
