@@ -493,7 +493,7 @@ def parse_options(args):
     #  If the compiler is C++ (contains ++ in its name)
     #  we set the language explicitly to c++.
     cpp_regex = re.compile('.*\+\+.*')
-    if (cpp_regex.match(result_map.compiler) != None):
+    if cpp_regex.match(result_map.compiler) is not None:
         result_map.lang = 'c++'
 
     is_source = False
