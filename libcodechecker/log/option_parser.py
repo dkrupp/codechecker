@@ -177,9 +177,14 @@ UNKNOWN_OPTIONS_MAP_REGEX = {
     '^-mmultiple$': 0,
     '^-mthumb-interwork$': 0,
     '^-mupdate$': 0,
+    '^-mapcs': 0,  # Generate a stack frame that is compliant with the ARM
+                   # Procedure Call Standard for all functions.
     '^-fno-merge-const-bfstores$': 0,
     '^-fno-ipa-sra$': 0,
     '^-mno-thumb-interwork$': 0,
+    '^-mno-sched-prolog': 0,  # Prevent the reordering of instructions in the
+                              # function prolog (initial instructions in at a
+                              # function call.
     # This is not unknown but we want to preserve asserts to improve the
     # quality of analysis.
     '^-DNDEBUG$': 0
