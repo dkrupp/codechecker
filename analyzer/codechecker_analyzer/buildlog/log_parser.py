@@ -417,7 +417,11 @@ class ImplicitCompilerInfo:
         language -- The programming language being compiled (e.g. 'c' or 'c++')
         compiler_flags -- the flags used for compilation
         """
-        cmd = [compiler, *compiler_flags, '-E', '-x', language, '-', '-v']
+        #cmd = [compiler, *compiler_flags, '-E', '-x', language, '-', '-v']
+        cmd = [compiler, *compiler_flags, '-E',
+               *(['-x', language] if language else []),
+               '-', '-v']
+
 
         # TODO: shlex.join(cmd) would be more elegant after upgrading to
         # Python 3.8.
