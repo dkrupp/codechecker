@@ -2,5 +2,5 @@ pytest==7.3.1
 pycodestyle==2.7.0
 pylint==2.8.2
 portalocker==2.2.1
-mypy==0.812
+mypy==0.991
 mypy_extensions==0.4.3
