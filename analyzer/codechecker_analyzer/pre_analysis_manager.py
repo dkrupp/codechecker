@@ -9,7 +9,7 @@
 Run pre analysis, collect statistics or CTU data.
 """
 
-import multiprocessing
+import multiprocess as multiprocessing
 import os
 import shlex
 import shutil
